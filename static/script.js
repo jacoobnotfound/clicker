@@ -25,6 +25,10 @@ async function handleReset() {
                 clicksPerSecond: 0
             };
             
+            // Clear localStorage
+            localStorage.removeItem('clicker_game_state');
+            localStorage.removeItem('clicker_upgrades_state');
+            
             // Update all displays
             updateDisplay();
             updateUpgradeButtons();
@@ -51,4 +55,4 @@ if (resetBtn) {
     resetBtn.addEventListener('click', handleReset);
 }
 
-console.log('Game initialized! API endpoint: http://localhost:5000/api');
+console.log('Game initialized! Running locally with localStorage persistence.');

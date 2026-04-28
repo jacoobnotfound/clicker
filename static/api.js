@@ -17,18 +17,26 @@ async function apiCall(endpoint, method = 'GET', data = null) {
             options.body = JSON.stringify(data);
         }
 
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+        const url = `${API_BASE_URL}${endpoint}`;
+        console.log(`[API] ${method} ${url}`, data || '');
+        
+        const response = await fetch(url, options);
         
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status}`);
+            const errorText = await response.text();
+            console.error(`[API Error] ${response.status}:`, errorText);
+            throw new Error(`API Error: ${response.status} - ${errorText}`);
         }
 
-        return await response.json();
+        const result = await response.json();
+        console.log(`[API Response]`, result);
+        return result;
     } catch (error) {
-        console.error(`API call failed for ${endpoint}:`, error);
+        console.error(`[API Failed] ${endpoint}:`, error.message);
         throw error;
     }
 }
+
 
 /**
  * Get current game state

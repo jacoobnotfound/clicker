@@ -1,0 +1,28 @@
+{
+  "total_clicks": 11,
+  "total_earned": 11,
+  "multiplier": 1,
+  "clicks_per_second": 0,
+  "upgrades": {
+    "upgrade1": {
+      "purchased": 0,
+      "level": 0
+    },
+    "upgrade2": {
+      "purchased": 0,
+      "level": 0
+    },
+    "upgrade3": {
+      "purchased": 0,
+      "level": 0
+    },
+    "upgrade4": {
+      "purchased": 0,
+      "level": 0
+    }
+  },
+  "achievements": [
+    "first_click"
+  ],
+  "last_updated": "2026-04-28T14:15:09.871004"
+}
