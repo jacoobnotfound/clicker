@@ -7,117 +7,179 @@
     <link rel="stylesheet" href="public/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gradient-to-b from-slate-900 to-slate-800 text-white font-sans">
-    <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-8">
-            <h1 class="text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Click Master</h1>
-            <p class="text-lg text-gray-300">The Ultimate Clicking Experience</p>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 min-h-screen">
+    <div class="wrapper flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="top-0 left-0 right-0 z-50 border-b border-slate-700/50 bg-gradient-to-r from-slate-900/80 to-slate-950/80 backdrop-blur-sm">
+            <div class="text-center py-2 px-4">
+                <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Click Master</h1>
+                <p class="text-xs text-slate-400 tracking-widest uppercase font-semibold">Ultimate Clicking Experience</p>
+            </div>
         </header>
 
-        <main class="max-w-6xl mx-auto">
-            <div class="game-board bg-slate-700 rounded-lg shadow-2xl p-8 mb-8 border-2 border-amber-500">
-                <!-- Score Section -->
-                <div class="score-section grid grid-cols-2 gap-6 mb-8">
-                    <div class="score-display bg-slate-600 rounded-lg p-6 text-center border border-amber-400">
-                        <h2 class="text-xl font-semibold text-amber-300 mb-2">Total Clicks</h2>
-                        <p class="score text-5xl font-bold text-amber-400" id="score">0</p>
+        <!-- Main Layout -->
+        <div class="main-layout grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 py-8 w-full flex-1 pt-20">
+            
+            <!-- Main Content (3 columns on large screens) -->
+            <main class="main-content lg:col-span-3 space-y-8">
+                
+                <!-- Game Board Section -->
+                <section class="game-board bg-slate-800/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 shadow-2xl hover:border-slate-600/50 transition-all duration-300">
+                    <div class="board-header mb-8">
+                        <h2 class="text-2xl font-bold text-slate-100 tracking-tight">Game Board</h2>
                     </div>
-                    <div class="per-second bg-slate-600 rounded-lg p-6 text-center border border-green-400">
-                        <h3 class="text-xl font-semibold text-green-300 mb-2">Clicks Per Second</h3>
-                        <p class="cps text-5xl font-bold text-green-400" id="cps">0</p>
+
+                    <!-- Score Metrics -->
+                    <div class="score-metrics grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="score-display bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/30 rounded-xl p-6 text-center hover:border-blue-400/50 hover:bg-gradient-to-br hover:from-blue-500/30 hover:to-blue-600/20 transition-all duration-300">
+                            <h3 class="text-sm font-semibold text-blue-300 tracking-wider uppercase mb-3">Total Clicks</h3>
+                            <p class="score text-5xl md:text-6xl font-bold text-blue-400 font-mono" id="score">0</p>
+                        </div>
+                        <div class="per-second bg-gradient-to-br from-green-500/20 to-green-600/10 border border-green-500/30 rounded-xl p-6 text-center hover:border-green-400/50 hover:bg-gradient-to-br hover:from-green-500/30 hover:to-green-600/20 transition-all duration-300">
+                            <h3 class="text-sm font-semibold text-green-300 tracking-wider uppercase mb-3">Clicks Per Second</h3>
+                            <p class="cps text-5xl md:text-6xl font-bold text-green-400 font-mono" id="cps">0</p>
+                        </div>
                     </div>
+
+                    <!-- Click Action -->
+                    <div class="click-area flex flex-col items-center gap-4 my-10">
+                        <button class="click-btn bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 hover:from-blue-600 hover:via-purple-600 hover:to-blue-700 text-white font-bold px-12 py-5 rounded-2xl text-2xl shadow-2xl hover:shadow-blue-500/50 hover:shadow-2xl transform transition-all duration-300 hover:-translate-y-2 active:translate-y-0 border border-blue-400/30 cursor-pointer" id="clickBtn">
+                            CLICK ME!
+                        </button>
+                        <p class="click-feedback text-lg text-blue-300 font-semibold min-h-8" id="feedback"></p>
+                    </div>
+                </section>
+
+                <!-- Upgrades Section -->
+                <section class="upgrades-section bg-slate-800/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 shadow-2xl">
+                    <div class="section-header mb-8">
+                        <h2 class="text-2xl font-bold text-slate-100 tracking-tight mb-2">⬆️ Upgrades</h2>
+                        <p class="text-slate-400 font-medium">Enhance your clicking power</p>
+                    </div>
+
+                    <div class="upgrades-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                        <!-- Upgrade 1 -->
+                        <article class="upgrade-card bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400/60 hover:bg-gradient-to-br hover:from-cyan-500/20 hover:to-cyan-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="upgrade-header mb-4 border-b border-cyan-500/20 pb-4 group-hover:border-cyan-400/40 transition-colors">
+                                <h3 class="text-lg font-bold text-cyan-300 group-hover:text-cyan-200">Better Fingers</h3>
+                            </div>
+                            <p class="upgrade-desc text-slate-300 mb-3 text-sm leading-relaxed">Each click is worth more</p>
+                            <p class="upgrade-cost text-sm text-slate-400 mb-4">Cost: <span class="font-bold text-cyan-400">50</span> clicks</p>
+                            <button class="upgrade-btn w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50" id="upgrade1">Purchase</button>
+                        </article>
+
+                        <!-- Upgrade 2 -->
+                        <article class="upgrade-card bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/60 hover:bg-gradient-to-br hover:from-purple-500/20 hover:to-purple-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="upgrade-header mb-4 border-b border-purple-500/20 pb-4 group-hover:border-purple-400/40 transition-colors">
+                                <h3 class="text-lg font-bold text-purple-300 group-hover:text-purple-200">Auto Clicker</h3>
+                            </div>
+                            <p class="upgrade-desc text-slate-300 mb-3 text-sm leading-relaxed">Clicks for you automatically</p>
+                            <p class="upgrade-cost text-sm text-slate-400 mb-4">Cost: <span class="font-bold text-purple-400">200</span> clicks</p>
+                            <button class="upgrade-btn w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50" id="upgrade2">Purchase</button>
+                        </article>
+
+                        <!-- Upgrade 3 -->
+                        <article class="upgrade-card bg-gradient-to-br from-pink-500/10 to-pink-600/5 border border-pink-500/30 rounded-xl p-6 hover:border-pink-400/60 hover:bg-gradient-to-br hover:from-pink-500/20 hover:to-pink-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="upgrade-header mb-4 border-b border-pink-500/20 pb-4 group-hover:border-pink-400/40 transition-colors">
+                                <h3 class="text-lg font-bold text-pink-300 group-hover:text-pink-200">Power Surge</h3>
+                            </div>
+                            <p class="upgrade-desc text-slate-300 mb-3 text-sm leading-relaxed">Double your click power</p>
+                            <p class="upgrade-cost text-sm text-slate-400 mb-4">Cost: <span class="font-bold text-pink-400">500</span> clicks</p>
+                            <button class="upgrade-btn w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50" id="upgrade3">Purchase</button>
+                        </article>
+
+                        <!-- Upgrade 4 -->
+                        <article class="upgrade-card bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/30 rounded-xl p-6 hover:border-green-400/60 hover:bg-gradient-to-br hover:from-green-500/20 hover:to-green-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="upgrade-header mb-4 border-b border-green-500/20 pb-4 group-hover:border-green-400/40 transition-colors">
+                                <h3 class="text-lg font-bold text-green-300 group-hover:text-green-200">Click Frenzy</h3>
+                            </div>
+                            <p class="upgrade-desc text-slate-300 mb-3 text-sm leading-relaxed">Increases clicks per second</p>
+                            <p class="upgrade-cost text-sm text-slate-400 mb-4">Cost: <span class="font-bold text-green-400">1000</span> clicks</p>
+                            <button class="upgrade-btn w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50" id="upgrade4">Purchase</button>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Achievements Section -->
+                <section class="achievements-section bg-slate-800/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 shadow-2xl">
+                    <div class="section-header mb-8">
+                        <h2 class="text-2xl font-bold text-slate-100 tracking-tight mb-2">🏆 Achievements</h2>
+                        <p class="text-slate-400 font-medium">Unlock special milestones</p>
+                    </div>
+
+                    <div class="achievements-grid grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <!-- Achievement 1 -->
+                        <article class="achievement bg-gradient-to-br from-yellow-500/10 to-yellow-600/5 border border-yellow-500/30 rounded-xl p-6 text-center hover:border-yellow-400/60 hover:bg-gradient-to-br hover:from-yellow-500/20 hover:to-yellow-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="achievement-icon text-4xl mb-4 inline-block group-hover:scale-125 transition-transform duration-300">🥚</div>
+                            <h3 class="achievement-name text-base font-bold text-yellow-300 group-hover:text-yellow-200 mb-2">First Click</h3>
+                            <p class="achievement-desc text-sm text-slate-400">Click once</p>
+                        </article>
+
+                        <!-- Achievement 2 -->
+                        <article class="achievement bg-gradient-to-br from-red-500/10 to-red-600/5 border border-red-500/30 rounded-xl p-6 text-center hover:border-red-400/60 hover:bg-gradient-to-br hover:from-red-500/20 hover:to-red-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="achievement-icon text-4xl mb-4 inline-block group-hover:scale-125 transition-transform duration-300">🔥</div>
+                            <h3 class="achievement-name text-base font-bold text-red-300 group-hover:text-red-200 mb-2">On Fire</h3>
+                            <p class="achievement-desc text-sm text-slate-400">Get 100 clicks</p>
+                        </article>
+
+                        <!-- Achievement 3 -->
+                        <article class="achievement bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-xl p-6 text-center hover:border-blue-400/60 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-blue-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="achievement-icon text-4xl mb-4 inline-block group-hover:scale-125 transition-transform duration-300">⚡</div>
+                            <h3 class="achievement-name text-base font-bold text-blue-300 group-hover:text-blue-200 mb-2">Speedster</h3>
+                            <p class="achievement-desc text-sm text-slate-400">Reach 50 CPS</p>
+                        </article>
+
+                        <!-- Achievement 4 -->
+                        <article class="achievement bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-xl p-6 text-center hover:border-purple-400/60 hover:bg-gradient-to-br hover:from-purple-500/20 hover:to-purple-600/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                            <div class="achievement-icon text-4xl mb-4 inline-block group-hover:scale-125 transition-transform duration-300">👑</div>
+                            <h3 class="achievement-name text-base font-bold text-purple-300 group-hover:text-purple-200 mb-2">Legend</h3>
+                            <p class="achievement-desc text-sm text-slate-400">Get 1000 clicks</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar Stats (1 column on large screens) -->
+            <aside class="stats-sidebar lg:col-span-1 space-y-4 h-fit sticky top-24">
+                <div class="sidebar-header">
+                    <h2 class="text-xl font-bold text-slate-100 tracking-tight">Stats</h2>
                 </div>
 
-                <!-- Main Click Button -->
-                <div class="click-area text-center mb-8">
-                    <button class="click-btn bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-6 px-16 rounded-xl text-3xl shadow-lg transform transition hover:scale-110 active:scale-95" id="clickBtn">CLICK ME!</button>
-                    <p class="click-feedback mt-4 text-xl text-yellow-300 font-bold" id="feedback"></p>
+                <!-- Stat Card 1 -->
+                <div class="stat-card bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-xl p-6 hover:border-purple-400/50 hover:bg-gradient-to-br hover:from-purple-500/20 hover:to-purple-600/10 transition-all duration-300">
+                    <h3 class="text-sm font-semibold text-purple-300 tracking-wider uppercase mb-3">Total Earned</h3>
+                    <p class="stat-value text-3xl font-bold text-purple-400 font-mono" id="totalEarned">0</p>
                 </div>
 
-                <!-- Stats Section -->
-                <div class="stats-section grid grid-cols-2 gap-4">
-                    <div class="stat-item bg-slate-600 p-4 rounded-lg flex justify-between items-center border border-purple-400">
-                        <span class="stat-label text-purple-300 font-semibold">Total Earned:</span>
-                        <span class="stat-value text-2xl font-bold text-purple-400" id="totalEarned">0</span>
-                    </div>
-                    <div class="stat-item bg-slate-600 p-4 rounded-lg flex justify-between items-center border border-blue-400">
-                        <span class="stat-label text-blue-300 font-semibold">Multiplier:</span>
-                        <span class="stat-value text-2xl font-bold text-blue-400" id="multiplier">x1</span>
-                    </div>
+                <!-- Stat Card 2 -->
+                <div class="stat-card bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400/50 hover:bg-gradient-to-br hover:from-cyan-500/20 hover:to-cyan-600/10 transition-all duration-300">
+                    <h3 class="text-sm font-semibold text-cyan-300 tracking-wider uppercase mb-3">Multiplier</h3>
+                    <p class="stat-value text-3xl font-bold text-cyan-400 font-mono" id="multiplier">x1</p>
                 </div>
+
+                <!-- Stat Card 3 -->
+                <div class="stat-card bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/30 rounded-xl p-6 hover:border-green-400/50 hover:bg-gradient-to-br hover:from-green-500/20 hover:to-green-600/10 transition-all duration-300">
+                    <h3 class="text-sm font-semibold text-green-300 tracking-wider uppercase mb-3">Game Status</h3>
+                    <p class="stat-status text-lg font-bold text-green-400">Active</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer border-t border-slate-700/50 bg-gradient-to-r from-slate-900/80 to-slate-950/80 backdrop-blur-sm">
+            <div class="footer-content flex flex-col items-center gap-6 py-8 px-4">
+                <button class="reset-btn bg-gradient-to-r from-red-500/80 to-red-600/80 hover:from-red-600/90 hover:to-red-700/90 text-white font-bold py-3 px-8 rounded-lg text-sm tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-red-500/50 border border-red-400/30" id="resetBtn">
+                    Reset Game
+                </button>
+                <p class="copyright text-slate-400 text-sm tracking-wide">&copy; 2026 Click Master. All rights reserved.</p>
             </div>
-
-            <!-- Upgrades Section -->
-            <div class="upgrades-section mb-8">
-                <h2 class="text-3xl font-bold mb-6 text-center text-amber-400">⬆️ Upgrades</h2>
-                <div class="upgrades-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="upgrade-card bg-slate-700 rounded-lg p-6 border-2 border-cyan-400 hover:shadow-cyan-500/50 shadow-lg transition hover:scale-105">
-                        <h3 class="text-xl font-bold text-cyan-300 mb-2">Better Fingers</h3>
-                        <p class="upgrade-desc text-gray-300 mb-3">Each click is worth more</p>
-                        <p class="upgrade-cost text-sm text-gray-400 mb-4">Cost: <span class="text-cyan-400 font-bold">50</span> clicks</p>
-                        <button class="upgrade-btn bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded w-full transition" id="upgrade1">Purchase</button>
-                    </div>
-
-                    <div class="upgrade-card bg-slate-700 rounded-lg p-6 border-2 border-purple-400 hover:shadow-purple-500/50 shadow-lg transition hover:scale-105">
-                        <h3 class="text-xl font-bold text-purple-300 mb-2">Auto Clicker</h3>
-                        <p class="upgrade-desc text-gray-300 mb-3">Clicks for you automatically</p>
-                        <p class="upgrade-cost text-sm text-gray-400 mb-4">Cost: <span class="text-purple-400 font-bold">200</span> clicks</p>
-                        <button class="upgrade-btn bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded w-full transition" id="upgrade2">Purchase</button>
-                    </div>
-
-                    <div class="upgrade-card bg-slate-700 rounded-lg p-6 border-2 border-pink-400 hover:shadow-pink-500/50 shadow-lg transition hover:scale-105">
-                        <h3 class="text-xl font-bold text-pink-300 mb-2">Power Surge</h3>
-                        <p class="upgrade-desc text-gray-300 mb-3">Double your click power</p>
-                        <p class="upgrade-cost text-sm text-gray-400 mb-4">Cost: <span class="text-pink-400 font-bold">500</span> clicks</p>
-                        <button class="upgrade-btn bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full transition" id="upgrade3">Purchase</button>
-                    </div>
-
-                    <div class="upgrade-card bg-slate-700 rounded-lg p-6 border-2 border-green-400 hover:shadow-green-500/50 shadow-lg transition hover:scale-105">
-                        <h3 class="text-xl font-bold text-green-300 mb-2">Click Frenzy</h3>
-                        <p class="upgrade-desc text-gray-300 mb-3">Increases clicks per second</p>
-                        <p class="upgrade-cost text-sm text-gray-400 mb-4">Cost: <span class="text-green-400 font-bold">1000</span> clicks</p>
-                        <button class="upgrade-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full transition" id="upgrade4">Purchase</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Achievements Section -->
-            <div class="achievements-section mb-8">
-                <h2 class="text-3xl font-bold mb-6 text-center text-amber-400">🏆 Achievements</h2>
-                <div class="achievements-grid grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="achievement bg-slate-700 rounded-lg p-4 text-center border-2 border-yellow-400 hover:shadow-yellow-500/50 shadow-lg transition">
-                        <div class="achievement-icon text-5xl mb-2">🥚</div>
-                        <p class="achievement-name font-bold text-yellow-300">First Click</p>
-                        <p class="achievement-desc text-sm text-gray-400">Click once</p>
-                    </div>
-
-                    <div class="achievement bg-slate-700 rounded-lg p-4 text-center border-2 border-red-400 hover:shadow-red-500/50 shadow-lg transition">
-                        <div class="achievement-icon text-5xl mb-2">🔥</div>
-                        <p class="achievement-name font-bold text-red-300">On Fire</p>
-                        <p class="achievement-desc text-sm text-gray-400">Get 100 clicks</p>
-                    </div>
-
-                    <div class="achievement bg-slate-700 rounded-lg p-4 text-center border-2 border-blue-400 hover:shadow-blue-500/50 shadow-lg transition">
-                        <div class="achievement-icon text-5xl mb-2">⚡</div>
-                        <p class="achievement-name font-bold text-blue-300">Speedster</p>
-                        <p class="achievement-desc text-sm text-gray-400">Reach 50 CPS</p>
-                    </div>
-
-                    <div class="achievement bg-slate-700 rounded-lg p-4 text-center border-2 border-purple-400 hover:shadow-purple-500/50 shadow-lg transition">
-                        <div class="achievement-icon text-5xl mb-2">👑</div>
-                        <p class="achievement-name font-bold text-purple-300">Legend</p>
-                        <p class="achievement-desc text-sm text-gray-400">Get 1000 clicks</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer class="text-center mt-12 border-t border-gray-600 pt-8">
-            <button class="reset-btn bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg mb-4 transition" id="resetBtn">Reset Game</button>
-            <p class="copyright text-gray-400">&copy; 2026 Click Master. All rights reserved.</p>
         </footer>
     </div>
 
+    <!-- API and Game Scripts -->
+    <script src="static/api.js"></script>
+    <script src="static/clicks.js"></script>
+    <script src="static/upgrades.js"></script>
     <script src="static/script.js"></script>
 </body>
 </html>
